@@ -46,7 +46,10 @@ def main():
     if abs(k - m)  == abs(l - n):
         print('f) The bishop may move to these square by 1 move')
     elif (k + l) % 2 == (m + n) % 2:
-        print(f'f) Move the bishop to ({int(k + abs(k + l - m - n ) / 2)}, {int(l + abs(k + l - m - n ) / 2)}) and then to ({m}, {n})')
+        step = abs(k + l - m - n) / 2
+        if int(k + abs(k + l - m - n ) / 2) >= 8:
+            step *= -1
+        print(f'f) Move the bishop to ({int(k + step)}, {int(l + step)}) and then to ({m}, {n})')
     else:
         print('f) The bishop may not move to these square')
 
